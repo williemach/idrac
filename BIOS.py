@@ -41,13 +41,13 @@ def biosUpgrade(hostname, user, passwd):
 
     print "[{0}] Connected".format(hostname)
 
-    stdin, stdout, stderr = client.exec_command('racadm update -f BIOS_VH690_WN64_2.1.3.EXE -l 10.27.67.25:/srv/fai/dell');
+    stdin, stdout, stderr = client.exec_command('racadm update -f BIOS_VH690_WN64_2.1.3.EXE -l 192.168.1.1:/srv/fai/dell');
     exit_status = stdout.channel.recv_exit_status()
 
-    stdin, stdout, stderr = client.exec_command('racadm update -f LC2.1_Q3FY15_Repair_Package_1.4.2.12_A00.usc -l 10.27.67.25:/srv/fai/dell');
+    stdin, stdout, stderr = client.exec_command('racadm update -f LC2.1_Q3FY15_Repair_Package_1.4.2.12_A00.usc -l 192.168.1.1:/srv/fai/dell');
     exit_status = stdout.channel.recv_exit_status()
 
-    stdin, stdout, stderr = client.exec_command('racadm update -f firmimg.d7 -l 10.27.67.25:/srv/fai/dell');
+    stdin, stdout, stderr = client.exec_command('racadm update -f firmimg.d7 -l 192.168.1.1:/srv/fai/dell');
     exit_status = stdout.channel.recv_exit_status()
 
     stdin, stdout, stderr = client.exec_command('racadm serveraction hardreset');
